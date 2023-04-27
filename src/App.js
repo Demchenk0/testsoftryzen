@@ -1,10 +1,15 @@
-
+import Hero from './components/hero/Hero';
+import Navbar from './components/navbar/Navbar';
 function App() {
-  return (
-    <div >
-      <h1>Hello</h1>
-    </div>
-  );
+	return (
+		<>
+			<Navbar />
+			<main>
+      <Hero />
+      </main>
+      <footer>footer</footer>
+		</>
+	);
 }
 
 export default App;
