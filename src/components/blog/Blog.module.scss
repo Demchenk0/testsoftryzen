@@ -1,38 +1,73 @@
+@import '../../mixins';
+
 .section {
-    background: #0284D0;
+	background: #0284d0;
 }
+
+.box {
+	margin: 0 auto;
+	@include media('tablet') {
+		display: flex;
+		flex-direction: row-reverse;
+	}
+}
+
 .img {
+	
 	width: 100%;
+	min-height: 247px;
+		background-position: center;
+		background-size: cover;
+		background-image: url(../../aseets/images/home/blog.jpg);
+	@include media('tablet') {
+		width: 50%;
+		background-position: center;
+		background-size: cover;
+		background-image: url(../../aseets/images/home/blog.jpg);
+	}
 }
+
 .text {
 	font-family: 'Open Sans';
 	font-style: normal;
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 22px;
-    color: white;
+	color: white;
+
+	@include media('tablet') {
+font-size: 18px;
+line-height: 25px;
+	}
 }
 .title {
 	font-family: 'Open Sans';
 	font-size: 32px;
 	line-height: 44px;
-    color: white;
-    margin-top: 16px;
-    margin-bottom: 24px;
+	color: white;
+	margin-top: 16px;
+	margin-bottom: 24px;
+	@include media('tablet') {
+	font-size: 40px;
+line-height: 54px;
+	}
 }
-.description{
-    padding-top: 48px;
-    padding-bottom: 58px;
+.description {
+	padding: 48px 20px 58px;
+	@include media('tablet') {
+		padding: 59px 32px;
+		width: 50%;
+	}
 }
 .button {
-padding: 16px 32px;
-font-family: 'Open Sans';
-font-size: 16px;
-line-height: 22px;
-background: transparent;
-margin-top: 24px;
+	padding: 16px 32px;
+	font-family: 'Open Sans';
+	font-size: 16px;
+	line-height: 22px;
+	background: transparent;
+	margin-top: 24px;
 
-color: #FFFFFF;
-border: 1px solid #FFFFFF;
-border-radius: 5px;
+	color: #ffffff;
+	border: 1px solid #ffffff;
+	border-radius: 5px;
 }

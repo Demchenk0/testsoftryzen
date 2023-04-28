@@ -38,12 +38,15 @@
 	gap: 8px;
 	@include media ('tablet') {
 		margin-top: 0;
+		font-size: 35px;
+line-height: 48px;
 	}
 }
 
 .text {
 	color: white;
 	margin-left: 8px;
+	
 }
 
 .list {
@@ -53,6 +56,9 @@
 	margin-top: 16px;
 	@include media ('tablet') {
 		margin-top: 0;
+		font-size: 18px;
+line-height: 25px;
+gap: 20px;
 	}
 
 }

@@ -1,13 +1,11 @@
 import React from 'react';
-import People from '../../aseets/images/home/people.jpg';
-import styles from '../about/About.module.scss'
+import styles from '../about/About.module.scss';
 const About = () => {
 	return (
 		<section className={styles.section}>
-			<div>
-				<img className={styles.img} src={People} alt="people" />
-			</div>
-			<div className="container">
+			<div className={styles.box} >
+				<div className={styles.img}>
+				</div>
 				<div className={styles.description}>
 					<p className={styles.text}>What you are looking for</p>
 					<h1 className={styles.title}>We provide bespoke solutions</h1>

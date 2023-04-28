@@ -1,5 +1,10 @@
+@import '../../mixins';
+
 .box {
 	padding: 64px 0 50px;
+	@include media('tablet') {
+		padding: 50px 0 40px;
+	}
 }
 
 .description {
@@ -15,6 +20,10 @@
 	font-size: 16px;
 	line-height: 22px;
 	color: black;
+	@include media('tablet') {
+		font-size: 18px;
+line-height: 25px;
+	}
 }
 .title {
 	font-family: 'Open Sans';
@@ -22,12 +31,21 @@
 	line-height: 44px;
 	color: black;
 	margin: 24px auto;
+	@include media('tablet') {
+		margin: 16px auto 24px;
+		font-size: 40px;
+line-height: 54px;
+	}
 }
 .name {
 	font-family: 'Open Sans';
 	font-size: 20px;
 	line-height: 27px;
 	margin: 16px 0 8px;
+	@include media('tablet') {
+		font-size: 32px;
+line-height: 32px;
+	}
 }
 .boxItem {
 	display: flex;
@@ -35,6 +53,11 @@
 	flex-direction: column;
 	margin-top: 64px;
     gap: 30px;
+	@include media('tablet') {
+		flex-direction: row;
+		gap: 18px;
+		margin-top: 24px;
+	}
 }
 .img {
 	width: 100%;

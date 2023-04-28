@@ -1,8 +1,30 @@
+@import '../../mixins';
 .section {
-    background: #28A745;
+	background: #28a745;
+	@include media('tablet') {
+		display: flex;
+	}
 }
+.box {
+	margin: 0 auto;
+	@include media('tablet') {
+		display: flex;
+	}
+}
+
 .img {
+	min-height: 220px;
 	width: 100%;
+	background-position: center;
+		background-size: cover;
+		background-image: url(../../aseets/images/home/people.jpg);
+	@include media('tablet') {
+		width: 50%;
+		background-position: center;
+		background-size: cover;
+		background-image: 
+			url(../../aseets/images/home/people.jpg);
+	}
 }
 .text {
 	font-family: 'Open Sans';
@@ -10,29 +32,41 @@
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 22px;
-    color: white;
+	color: white;
+	@include media('tablet') {
+		font-size: 18px;
+		line-height: 25px;
+	}
 }
 .title {
 	font-family: 'Open Sans';
 	font-size: 32px;
 	line-height: 44px;
-    color: white;
-    margin-top: 16px;
-    margin-bottom: 24px;
+	color: white;
+	margin-top: 16px;
+	margin-bottom: 24px;
+
+	@include media('tablet') {
+		font-size: 40px;
+		line-height: 48px;
+	}
 }
-.description{
-    padding-top: 79px;
-    padding-bottom: 79px;
+.description {
+	padding: 79px 20px;
+	@include media('tablet') {
+		padding: 62px 32px;
+		width: 50%;
+	}
 }
 .button {
-padding: 16px 32px;
-font-family: 'Open Sans';
-font-size: 16px;
-line-height: 22px;
-background: transparent;
-margin-top: 24px;
+	padding: 16px 32px;
+	font-family: 'Open Sans';
+	font-size: 16px;
+	line-height: 22px;
+	background: transparent;
+	margin-top: 24px;
 
-color: #FFFFFF;
-border: 1px solid #FFFFFF;
-border-radius: 5px;
+	color: #ffffff;
+	border: 1px solid #ffffff;
+	border-radius: 5px;
 }

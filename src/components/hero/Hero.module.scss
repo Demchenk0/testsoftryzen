@@ -1,3 +1,5 @@
+@import '../../mixins';
+
 .section {
 	background-position: center;
 	background-size: cover;
@@ -14,7 +16,10 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	height: 533px;
+	padding: 160px 0 104px;
+	@include media('tablet') {
+		padding: 378px 0;
+	}
 }
 .title {
 	font-family: 'Open Sans';
@@ -26,6 +31,11 @@
 	color: white;
 	margin-left: 40px;
 	margin-right: 40px;
+	@include media('tablet') {
+		margin: 0;
+		font-size: 55px;
+		line-height: 75px;
+	}
 }
 .text {
 	font-family: 'Open Sans';
@@ -35,6 +45,12 @@
 	line-height: 32px;
 	text-align: center;
 	color: #ffffff;
+	@include media('tablet') {
+		margin: 0 122px;
+		font-size: 40px;
+		line-height: 48px;
+		margin-top: 16px;
+	}
 }
 .button {
 	display: flex;
@@ -53,8 +69,8 @@
 	margin-top: 24px;
 	gap: 8px;
 	cursor: pointer;
-	&:hover, &:focus {
+	&:hover,
+	&:focus {
 		background-color: red;
 	}
-	
 }
