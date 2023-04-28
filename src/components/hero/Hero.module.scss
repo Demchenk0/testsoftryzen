@@ -47,14 +47,14 @@
 	text-align: center;
 	color: #ffffff;
 	background-color: #28a745;
-	:hover, :focus {
-		background-color: red;
-	}
 	border: none;
 	border-radius: 5px;
 	padding: 16px 32px;
 	margin-top: 24px;
 	gap: 8px;
 	cursor: pointer;
+	&:hover, &:focus {
+		background-color: red;
+	}
 	
 }

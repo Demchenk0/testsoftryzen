@@ -11,7 +11,6 @@ const Hero = () => {
 					<h2 className={styles.text}>
 						We provide world class financial assistance
 					</h2>
-
 					<button className={styles.button} type="button">
 						<FaAngleRight />
 						Read More
