@@ -1,0 +1,41 @@
+.box {
+	padding: 64px 0 50px;
+}
+
+.description {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+
+.text {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 22px;
+	color: black;
+}
+.title {
+	font-family: 'Open Sans';
+	font-size: 32px;
+	line-height: 44px;
+	color: black;
+	margin: 24px auto;
+}
+.name {
+	font-family: 'Open Sans';
+	font-size: 20px;
+	line-height: 27px;
+	margin: 16px 0 8px;
+}
+.boxItem {
+	display: flex;
+	text-align: center;
+	flex-direction: column;
+	margin-top: 64px;
+    gap: 30px;
+}
+.img {
+	width: 100%;
+}
