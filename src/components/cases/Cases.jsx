@@ -1,14 +1,16 @@
 import React from 'react';
-// import { useState } from 'react';
+import { useState } from 'react';
 import styles from './Cases.module.scss';
 // import { CasesSlider } from './CasesSlider';
 
 import { CasesSlider } from './CasesSlider';
 
 const Cases = ({ slides }) => {
-	// const [current, setCurrent] = useState(0);
+	const [isImage, setIsImage] = useState(null);
 	// const length = slides.length;
-
+	// const toggleImage = () => {
+	// 	setIsImage(!isImage);
+	// };
 	// const nextSlide = () => {
 	// 	setCurrent(current === length - 1 ? 0 : current + 1);
 	// };
@@ -21,7 +23,7 @@ const Cases = ({ slides }) => {
 	// }
 	return (
 		<section>
-			<div name='casses' className="container">
+			<div name="casses" className="container">
 				<div className={styles.box}>
 					<div className={styles.description}>
 						<p className={styles.text}>This is what we do</p>
@@ -33,7 +35,13 @@ const Cases = ({ slides }) => {
 					</div>
 					<div className={styles.boxItem}>
 						{CasesSlider.map((img, idx) => (
-							<img key={idx} className={styles.img} src={img} alt="business" />
+							<img
+								key={idx}
+								className={`${styles.img}  ${isImage === idx ? styles.imgZoom : ''}`}
+								src={img}
+								alt="business"
+								onClick={() => setIsImage(idx)}
+							/>
 						))}
 					</div>
 				</div>
