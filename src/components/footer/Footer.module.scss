@@ -3,10 +3,11 @@
     padding: 20px 0;
 }
 
-.icon {
+.iconBox {
     display: flex;
     justify-content: center;
     gap: 25px;
+   
 }
 
 .copirate{
@@ -16,4 +17,15 @@ line-height: 22px;
 color: #ffffff;
 text-align: center;
 margin-top: 12px;
+}
+
+.icon {
+    color: #ffffff;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+	&:hover,
+	&:focus {
+		color: #28A745;
+	}
 }

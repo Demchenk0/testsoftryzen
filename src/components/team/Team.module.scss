@@ -53,6 +53,7 @@ line-height: 32px;
 	flex-direction: column;
 	margin-top: 64px;
     gap: 30px;
+	
 	@include media('tablet') {
 		flex-direction: row;
 		gap: 18px;
@@ -61,4 +62,30 @@ line-height: 32px;
 }
 .img {
 	width: 100%;
+}
+.boxIcon {
+	position: relative;
+    overflow: hidden;
+    z-index: -1;
+	 
+}
+.icon {
+	
+	position: absolute;
+    width: 100%;
+    background-color: rgba(33, 150, 243, 0.9);
+    margin: auto;
+    gap: 25px;
+    display: flex;
+    justify-content: center;
+	padding: 30% 0;
+    letter-spacing: 0.03em;
+    transition: transform 250ms var(--timing-function);
+    opacity: 1;
+    outline: 2px solid var(--logo-color);
+	z-index: -1;
+	&:hover, :focus {
+		z-index: 3;
+	}
+	
 }

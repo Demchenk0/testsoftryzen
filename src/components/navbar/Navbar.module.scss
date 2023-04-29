@@ -15,14 +15,13 @@
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
-	@include media ('tablet') {
+	@include media('tablet') {
 		flex-direction: row;
 		justify-content: space-between;
 		max-width: none;
 		align-items: center;
 		padding-top: 16px;
 	}
-	
 }
 
 .logo {
@@ -36,17 +35,20 @@
 	font-size: 28px;
 	line-height: 38px;
 	gap: 8px;
-	@include media ('tablet') {
+	&:hover,
+	&:focus {
+		transform: scale(1.1);;
+	}
+	@include media('tablet') {
 		margin-top: 0;
 		font-size: 35px;
-line-height: 48px;
+		line-height: 48px;
 	}
 }
 
 .text {
 	color: white;
 	margin-left: 8px;
-	
 }
 
 .list {
@@ -54,13 +56,13 @@ line-height: 48px;
 	justify-content: center;
 	gap: 12px;
 	margin-top: 16px;
-	@include media ('tablet') {
+	
+	@include media('tablet') {
 		margin-top: 0;
 		font-size: 18px;
-line-height: 25px;
-gap: 20px;
+		line-height: 25px;
+		gap: 20px;
 	}
-
 }
 
 .item {
@@ -68,8 +70,9 @@ gap: 20px;
 	font-size: 16px;
 	line-height: 22px;
 	color: white;
-	@include media ('tablet') {
-	font-size: 18px;
-line-height: 25px;
+	
+	@include media('tablet') {
+		font-size: 18px;
+		line-height: 25px;
 	}
 }

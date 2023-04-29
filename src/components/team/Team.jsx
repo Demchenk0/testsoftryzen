@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Team.module.scss';
 import { TeamList } from './TeamList';
+import { FaFacebook, FaLinkedin, FaTwitter, FaYoutube } from 'react-icons/fa';
 const Team = () => {
 	return (
 		<section>
@@ -17,7 +18,17 @@ const Team = () => {
 					<ul className={styles.boxItem}>
 						{TeamList.map((el, idx) => (
 							<li key={idx}>
-								<img className={styles.img} src={el.image} alt="team" />
+								<div className={styles.boxIcon}>
+								<div className={styles.icon}>
+									<FaFacebook  size={35} style={{ color: 'blue' }} />
+									<FaTwitter size={35} style={{ color: 'blue' }} />
+									<FaYoutube   size={35} style={{ color: 'blue' }} />
+									<FaLinkedin  size={35} style={{ color: 'blue' }} />
+
+                </div>
+
+									<img className={styles.img} src={el.image} alt="team" />
+                </div>
 								<p className={styles.name}>{el.name}</p>
 								<p className={styles.text}>{el.position}</p>
 							</li>

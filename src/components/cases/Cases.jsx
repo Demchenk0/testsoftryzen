@@ -2,12 +2,7 @@ import React from 'react';
 // import { useState } from 'react';
 import styles from './Cases.module.scss';
 // import { CasesSlider } from './CasesSlider';
-// import Cases1 from '../../aseets/images/cases/cases1.jpg'
-// import Cases2 from '../../aseets/images/cases/cases2.jpg'
-// import Cases3 from '../../aseets/images/cases/cases3.jpg'
-// import Cases4 from '../../aseets/images/cases/cases4.jpg'
-// import Cases5 from '../../aseets/images/cases/cases5.jpg'
-// import Cases6 from '../../aseets/images/cases/cases6.jpg'
+
 import { CasesSlider } from './CasesSlider';
 
 const Cases = ({ slides }) => {

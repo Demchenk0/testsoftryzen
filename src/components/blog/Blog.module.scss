@@ -70,4 +70,12 @@ line-height: 54px;
 	color: #ffffff;
 	border: 1px solid #ffffff;
 	border-radius: 5px;
+	cursor: pointer;
+	&:hover,
+	&:focus {
+		border: 1px solid #0284D0;
+border-radius: 5px;
+color: #0284D0;
+background-color: #F4F4F4;
+	}
 }

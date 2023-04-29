@@ -5,11 +5,11 @@ const Footer = () => {
 	return (
 		<section className={styles.section}>
 			<div className="container">
-				<div className={styles.icon}>
-					<FaFacebook size={35} style={{ color: 'white' }} />
-					<FaTwitter size={35} style={{ color: 'white' }} />
-					<FaYoutube size={35} style={{ color: 'white' }} />
-					<FaLinkedin size={35} style={{ color: 'white' }} />
+				<div className={styles.iconBox}>
+					<FaFacebook className={styles.icon} />
+					<FaTwitter className={styles.icon} />
+					<FaYoutube className={styles.icon} />
+					<FaLinkedin className={styles.icon} />
 				</div>
           <p className={styles.copirate}>Copyright © 2021 - FinanceLedger</p>
 			</div>
