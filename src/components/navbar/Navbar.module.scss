@@ -2,7 +2,6 @@
 
 .header {
 	width: 100%;
-
 	background-color: transparent;
 	position: fixed;
 	top: 0;
@@ -23,6 +22,7 @@
 		align-items: center;
 		padding-top: 16px;
 	}
+	
 }
 
 .logo {
@@ -68,4 +68,8 @@ gap: 20px;
 	font-size: 16px;
 	line-height: 22px;
 	color: white;
+	@include media ('tablet') {
+	font-size: 18px;
+line-height: 25px;
+	}
 }

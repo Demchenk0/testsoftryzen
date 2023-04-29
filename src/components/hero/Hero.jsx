@@ -12,7 +12,7 @@ const Hero = () => {
 						We provide world class financial assistance
 					</h2>
 					<button className={styles.button} type="button">
-						<FaAngleRight />
+						<FaAngleRight style={{width: 9, height: 18 }}/>
 						Read More
 					</button>
 				</div>
