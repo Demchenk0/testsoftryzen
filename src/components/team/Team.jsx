@@ -19,16 +19,15 @@ const Team = () => {
 						{TeamList.map((el, idx) => (
 							<li key={idx}>
 								<div className={styles.boxIcon}>
-								<div className={styles.icon}>
-									<FaFacebook  size={35} style={{ color: 'blue' }} />
-									<FaTwitter size={35} style={{ color: 'blue' }} />
-									<FaYoutube   size={35} style={{ color: 'blue' }} />
-									<FaLinkedin  size={35} style={{ color: 'blue' }} />
-
-                </div>
-
+									<div className={styles.icon}>
+										<FaFacebook  className={styles.iconStyles} />
+										<FaTwitter className={styles.iconStyles} />
+										<FaYoutube  className={styles.iconStyles} />
+										<FaLinkedin  className={styles.iconStyles} />
+                    
+									</div>
 									<img className={styles.img} src={el.image} alt="team" />
-                </div>
+								</div>
 								<p className={styles.name}>{el.name}</p>
 								<p className={styles.text}>{el.position}</p>
 							</li>

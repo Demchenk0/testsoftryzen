@@ -3,7 +3,7 @@ import styles from './Blog.module.scss';
 
 const Blog = () => {
 	return (
-		<section className={styles.section}>
+		<section name='blog' className={styles.section}>
 			<div className={styles.box}>
 				<div className={styles.img}></div>
 				<div className={styles.description}>

@@ -21,7 +21,7 @@ const Cases = ({ slides }) => {
 	// }
 	return (
 		<section>
-			<div className="container">
+			<div name='casses' className="container">
 				<div className={styles.box}>
 					<div className={styles.description}>
 						<p className={styles.text}>This is what we do</p>

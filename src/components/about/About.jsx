@@ -2,7 +2,7 @@ import React from 'react';
 import styles from '../about/About.module.scss';
 const About = () => {
 	return (
-		<section className={styles.section}>
+		<section name='about' className={styles.section}>
 			<div className={styles.box} >
 				<div className={styles.img}>
 				</div>

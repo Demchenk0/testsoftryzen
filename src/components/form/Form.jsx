@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Form.module.scss';
 const Form = () => {
 	return (
-		<section className={styles.contact}>
+		<section name='contact' className={styles.contact}>
 			<div className={styles.box}>
 			<div className={styles.img}></div>
 				<div className={styles.boxForm}>
