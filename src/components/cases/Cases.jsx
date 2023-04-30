@@ -1,26 +1,14 @@
 import React from 'react';
-import { useState } from 'react';
 import styles from './Cases.module.scss';
-// import { CasesSlider } from './CasesSlider';
-
 import { CasesSlider } from './CasesSlider';
 
-const Cases = ({ slides }) => {
-	const [isImage, setIsImage] = useState(null);
-	// const length = slides.length;
-	// const toggleImage = () => {
-	// 	setIsImage(!isImage);
-	// };
-	// const nextSlide = () => {
-	// 	setCurrent(current === length - 1 ? 0 : current + 1);
-	// };
-	// const prevSlide = () => {
-	// 	setCurrent(current === 0 ? length - 1 : current - 1);
-	// };
+import $ from 'jquery';
+window.jQuery = $;
+window.$ = $;
 
-	// if (!Array.isArray(slides) || slides.length <= 0) {
-	// 	return null;
-	// }
+
+
+const Cases = () => {
 	return (
 		<section>
 			<div name="casses" className="container">
@@ -34,14 +22,15 @@ const Cases = ({ slides }) => {
 						</p>
 					</div>
 					<div className={styles.boxItem}>
-						{CasesSlider.map((img, idx) => (
-							<img
+						{CasesSlider.map((image, idx) => (
+							<a href={image.path} data-lightbox="set" data-title={image.text}>
+              <img
 								key={idx}
-								className={`${styles.img}  ${isImage === idx ? styles.imgZoom : ''}`}
-								src={img}
+								className={styles.img} 
+								src={image.path}
 								alt="business"
-								onClick={() => setIsImage(idx)}
 							/>
+              </a>
 						))}
 					</div>
 				</div>

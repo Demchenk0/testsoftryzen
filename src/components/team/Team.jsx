@@ -24,7 +24,6 @@ const Team = () => {
 										<FaTwitter className={styles.iconStyles} />
 										<FaYoutube  className={styles.iconStyles} />
 										<FaLinkedin  className={styles.iconStyles} />
-                    
 									</div>
 									<img className={styles.img} src={el.image} alt="team" />
 								</div>

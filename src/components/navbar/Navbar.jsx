@@ -4,7 +4,7 @@ import { FaBookOpen } from 'react-icons/fa';
 import { Link } from 'react-scroll';
 const Navbar = () => {
 	const [color, setColor] = useState('transparent');
-
+	
 	useEffect(() => {
 		const changeColor = () => {
 			if (window.scrollY >= 90) {
@@ -28,24 +28,30 @@ const Navbar = () => {
 					<nav>
 						<ul className={styles.list}>
 							<li className={styles.item}>
-								<Link to="home" smooth={true} duration={500}>
+								<Link to="home"  offset={-70} smooth={true} duration={500}>
 									Home
 								</Link>
 							</li>
 							<li className={styles.item}>
-              <Link to="about" smooth={true} duration={500}>
-              About
+								<Link to="about" offset={-70} smooth={true} duration={500}>
+									About
 								</Link>
-                </li>
-							<li className={styles.item}><Link to="casses" smooth={true} duration={500}>
-              Casses
-								</Link></li>
-							<li className={styles.item}><Link to="blog" smooth={true} duration={500}>
-              Blog
-								</Link></li>
-							<li className={styles.item}><Link to="contact" smooth={true} duration={500}>
-              Contact
-								</Link></li>
+							</li>
+							<li className={styles.item}>
+								<Link to="casses" offset={-70} smooth={true} duration={500}>
+									Casses
+								</Link>
+							</li>
+							<li className={styles.item}>
+								<Link to="blog" offset={-70} smooth={true} duration={500}>
+									Blog
+								</Link>
+							</li>
+							<li className={styles.item}>
+								<Link to="contact" offset={-70} smooth={true} duration={500}>
+									Contact
+								</Link>
+							</li>
 						</ul>
 					</nav>
 				</div>
