@@ -1,16 +1,16 @@
 import React from 'react';
 import styles from './Form.module.scss';
-import { useForm } from 'react-hook-form';
-import error from '../../aseets/images/form/worning.svg';
-import queryString from 'query-string';
+// import { useForm } from 'react-hook-form';
+// import error from '../../aseets/images/form/worning.svg';
+// import queryString from 'query-string';
 
 
 const Form = () => {
-	const {
-		register,
-		handleSubmit,
-		formState: { errors },
-	} = useForm();
+	// const {
+	// 	register,
+	// 	handleSubmit,
+	// 	formState: { errors },
+	// } = useForm();
 
   
 	return (
@@ -19,7 +19,31 @@ const Form = () => {
 				<div className={styles.img}></div>
 				<div className={styles.boxForm}>
 					<p className={styles.callback}>Request Callback</p>
-					<form
+
+
+          <form name="contact" method="POST" data-netlify="true">
+  <p>
+    <label>Your Name: <input type="text" name="name" /></label>
+  </p>
+  <p>
+    <label>Your Email: <input type="email" name="email" /></label>
+  </p>
+  <p>
+    <label>Your Role: <select name="role[]" multiple>
+      <option value="leader">Leader</option>
+      <option value="follower">Follower</option>
+    </select></label>
+  </p>
+  <p>
+    <label>Message: <textarea name="message"></textarea></label>
+  </p>
+  <p>
+    <button type="submit">Send</button>
+  </p>
+</form>
+
+<input type="hidden" name="form-name" value="contact"></input>
+					{/* <form
 						name="contact"
 						className={styles.form}
 						method="POST"
@@ -78,7 +102,7 @@ const Form = () => {
 						<button className={styles.button} type="submit">
 							Send
 						</button>
-					</form>
+					</form> */}
 				</div>
 			</div>
 		</section>
