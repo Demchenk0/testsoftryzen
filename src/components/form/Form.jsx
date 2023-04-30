@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Form.module.scss';
 import { useForm } from 'react-hook-form';
-import error from '../../aseets/images/form/worning.svg'
+import error from '../../aseets/images/form/worning.svg';
 const Form = () => {
 	const {
 		register,
@@ -15,7 +15,7 @@ const Form = () => {
 				<div className={styles.boxForm}>
 					<p className={styles.callback}>Request Callback</p>
 					<form
-						className={styles.form}
+						className={styles.form} netlify
 						onSubmit={handleSubmit(data => {
 							if (!data.email) {
 								alert('Email is required');
@@ -45,7 +45,6 @@ const Form = () => {
 							Send
 						</button>
 					</form>
-				
 				</div>
 			</div>
 		</section>
