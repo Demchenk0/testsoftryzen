@@ -1,50 +1,61 @@
 
 import React from 'react';
 import styles from './Form.module.scss';
-import { useForm } from 'react-hook-form';
-import error from '../../aseets/images/form/worning.svg';
+// import { useForm } from 'react-hook-form';
+// import error from '../../aseets/images/form/worning.svg';
 
 
-const encode = data => {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
-};
+// const encode = data => {
+//   return Object.keys(data)
+//     .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+//     .join("&");
+// };
 
 const Form = () => {
-	const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm();
+	// const {
+  //   register,
+  //   handleSubmit,
+  //   reset,
+  //   formState: { errors },
+  // } = useForm();
 
-  const onSubmit = (data, e) => {
-    e.preventDefault();
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({
-        "form-name": "contact",
-        name: data.name,
-        email: data.email,
-      }),
-    })
-      .then(response => {
-        reset();
-        console.log(response);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  };
+  // const onSubmit = (data, e) => {
+  //   e.preventDefault();
+  //   fetch("/", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  //     body: encode({
+  //       "form-name": "contact",
+  //       name: data.name,
+  //       email: data.email,
+  //     }),
+  //   })
+  //     .then(response => {
+  //       reset();
+  //       console.log(response);
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     });
+  // };
 	return (
 		<section name="contact" className={styles.contact}>
 			<div className={styles.box}>
 				<div className={styles.img}></div>
 				<div className={styles.boxForm}>
 					<p className={styles.callback}>Request Callback</p>
-					<form
+          <form name="contact" className={styles.form} netlify>
+  <p>
+    <label>Name <input className={styles.input} type="text" name="name" /></label>
+  </p>
+  <p>
+    <label>Email <input className={styles.input} type="email" name="email" /></label>
+  </p>
+  <p>
+    <button className={styles.button} type="submit">Send</button>
+  </p>
+</form>
+					{/* <form
 						name="contact"
 						className={styles.form}
 						method="POST"
@@ -109,7 +120,7 @@ const Form = () => {
 						<button className={styles.button} type="submit">
 							Send
 						</button>
-					</form>
+					</form> */}
 				</div>
 			</div>
 		</section>
