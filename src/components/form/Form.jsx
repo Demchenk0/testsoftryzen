@@ -18,10 +18,10 @@ const Form = () => {
 		formState: { errors },
 	} = useForm();
 
-  // const onSubmit = (data) => {
-  //   console.log(data);
-  //   // Здесь вы можете отправить данные на сервер или выполнить другие действия по вашему усмотрению.
-  // };
+  const onSubmit = (data) => {
+    console.log(data);
+    // Здесь вы можете отправить данные на сервер или выполнить другие действия по вашему усмотрению.
+  };
 
   // const handleNetlifySubmit = (event) => {
   //   event.preventDefault();
@@ -32,25 +32,25 @@ const Form = () => {
   //     body: new FormData(form),
   //   }).then(() => console.log('Form submitted successfully'));
   // };
-  const onSubmit = (data, e) => {
-    e.preventDefault()
-    // const form = e.target
-    fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({
-            'form-name': 'contact',
-            ...data,
-        }),
-    })
-        .then(response => {
-            // reset()                
-            console.log(response)
-        })
-        .catch(error => {
-            console.log(error)
-        })
-}
+//   const onSubmit = (data, e) => {
+//     e.preventDefault()
+//     // const form = e.target
+//     fetch('/', {
+//         method: 'POST',
+//         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+//         body: encode({
+//             'form-name': 'contact',
+//             ...data,
+//         }),
+//     })
+//         .then(response => {
+//             // reset()                
+//             console.log(response)
+//         })
+//         .catch(error => {
+//             console.log(error)
+//         })
+// }
 	return (
 		<section name="contact" className={styles.contact}>
 			<div className={styles.box}>
