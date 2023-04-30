@@ -16,6 +16,8 @@ const Form = () => {
 				<div className={styles.boxForm}>
 					<p className={styles.callback}>Request Callback</p>
 					<form
+          name="contact"
+          method="POST"
 						className={styles.form}
 						data-netlify="true"
 						onSubmit={handleSubmit(data => {
