@@ -57,7 +57,40 @@ const Form = () => {
 				<div className={styles.img}></div>
 				<div className={styles.boxForm}>
 					<p className={styles.callback}>Request Callback</p>
-					<form 
+          <form 
+  onSubmit={handleSubmit(onSubmit)}
+  name="contact"
+  className={styles.form}
+  method="POST"
+  data-netlify="true"
+  data-netlify-honeypot="bot-field"
+>
+  <input type="hidden" name="form-name" value="contact" />
+  <input
+    name="name"
+    className={styles.input}
+    type="text"
+    placeholder="Enter your name"
+    {...register('name')}
+  />
+  <input
+    name="email"
+    className={styles.input}
+    type="email"
+    placeholder="Enter email*"
+    {...register('email', { required: true })}
+  />
+  {errors.email && (
+    <div className={styles.error}>
+      <img src={error} alt="error" />
+      <p>This is a required field</p>
+    </div>
+  )}
+  <button className={styles.button} type="submit">
+    Send
+  </button>
+</form>
+					{/* <form 
           onSubmit={handleSubmit(onSubmit)}
           name="contact"
 						className={styles.form}
@@ -105,7 +138,7 @@ const Form = () => {
 						<button className={styles.button} type="submit">
 							Send
 						</button>
-					</form>
+					</form> */}
 				</div>
 			</div>
 		</section>
