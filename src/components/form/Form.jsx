@@ -45,6 +45,7 @@ const Form = () => {
 				<div className={styles.boxForm}>
 					<p className={styles.callback}>Request Callback</p>
           <form name="contact" className={styles.form} netlify>
+          <input type="hidden" name="form-name" value="contact"></input>
   <p>
     <label>Name <input className={styles.input} type="text" name="name" /></label>
   </p>
