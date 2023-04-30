@@ -8,7 +8,6 @@ const Form = () => {
 		handleSubmit,
 		formState: { errors },
 	} = useForm();
-
 	return (
 		<section name="contact" className={styles.contact}>
 			<div className={styles.box}>
@@ -17,7 +16,6 @@ const Form = () => {
 					<p className={styles.callback}>Request Callback</p>
 					<form
           name="contact"
-          method="POST"
 						className={styles.form}
 						data-netlify="true"
 						onSubmit={handleSubmit(data => {
@@ -35,13 +33,16 @@ const Form = () => {
 								.then(() => alert('/thank-you/'))
 						})}
 					>
+          <input type="hidden" name="form-name" value="contact" />
 						<input
+            name="name"
 							className={styles.input}
 							type="text"
 							placeholder="Enter your name"
 							{...register('name')}
 						/>
 						<input
+            name="email"
 							className={styles.input}
 							type="email"
 							placeholder="Enter email*"
