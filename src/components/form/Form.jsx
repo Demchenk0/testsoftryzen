@@ -8,6 +8,7 @@ const Form = () => {
 		handleSubmit,
 		formState: { errors },
 	} = useForm();
+
 	return (
 		<section name="contact" className={styles.contact}>
 			<div className={styles.box}>
@@ -15,12 +16,21 @@ const Form = () => {
 				<div className={styles.boxForm}>
 					<p className={styles.callback}>Request Callback</p>
 					<form
-						className={styles.form} data-netlify="true"
+						className={styles.form}
+						data-netlify="true"
 						onSubmit={handleSubmit(data => {
-							if (!data.email) {
-								alert('Email is required');
-								return;
-							}
+							const formData = new FormData();
+							formData.append('name', data.name);
+							formData.append('email', data.email);
+
+							fetch('/', {
+								method: 'POST',
+								headers: {
+									'Content-Type': 'application/x-www-form-urlencoded',
+								},
+								body: new URLSearchParams(formData).toString(),
+							})
+								.then(() => alert('/thank-you/'))
 						})}
 					>
 						<input
