@@ -2,47 +2,73 @@ import React from 'react';
 import styles from './Form.module.scss';
 import { useForm } from 'react-hook-form';
 import error from '../../aseets/images/form/worning.svg';
-import queryString from 'query-string';
 
 
+const encode = data => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+};
 
 const Form = () => {
 	const {
-		register,
-		handleSubmit,
-		formState: { errors },
-	} = useForm();
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
 
-  
+  const onSubmit = (data, e) => {
+    e.preventDefault();
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": "contact",
+        ...data,
+      }),
+    })
+      .then(response => {
+        reset();
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 	return (
 		<section name="contact" className={styles.contact}>
 			<div className={styles.box}>
 				<div className={styles.img}></div>
 				<div className={styles.boxForm}>
 					<p className={styles.callback}>Request Callback</p>
-          
-
 					<form
 						name="contact"
 						className={styles.form}
 						method="POST"
 						data-netlify="true"
 						data-netlify-honeypot="bot-field"
-            onSubmit={handleSubmit(data => {
-    const encodedData = queryString.stringify({
-        'form-name': 'contact',
-        ...data
-    });
+            onSubmit={handleSubmit(onSubmit)}
 
-     
-  fetch("/", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams(encodedData).toString(),
-  })
-    .then(() => console.log("Form successfully submitted"))
-    .catch((error) => alert(error));
-})}           
+
+						// onSubmit={handleSubmit(data => {
+						// 	const encodedData = queryString.stringify({
+						// 		'form-name': 'contact',
+						// 		...data,
+						// 	});
+						// 	fetch('/', {
+						// 		method: 'POST',
+						// 		headers: {
+						// 			'Content-Type': 'application/x-www-form-urlencoded',
+						// 		},
+						// 		body: new URLSearchParams(encodedData).toString(),
+						// 	})
+						// 		.then(() => console.log('Form successfully submitted'))
+						// 		.catch(error => alert(error));
+						// })}
+
+
+
 						// onSubmit={handleSubmit(data => {
 						// 	const formData = new FormData();
 						// 	formData.append('name', data.name);
