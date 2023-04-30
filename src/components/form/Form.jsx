@@ -8,6 +8,21 @@ const Form = () => {
 		handleSubmit,
 		formState: { errors },
 	} = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+    // Здесь вы можете отправить данные на сервер или выполнить другие действия по вашему усмотрению.
+  };
+
+  const handleNetlifySubmit = (event) => {
+    event.preventDefault();
+    handleSubmit(onSubmit)(event);
+    const form = event.target;
+    fetch(form.action, {
+      method: form.method,
+      body: new FormData(form),
+    }).then(() => console.log('Form submitted successfully'));
+  };
 	return (
 		<section name="contact" className={styles.contact}>
 			<div className={styles.box}>
@@ -18,21 +33,22 @@ const Form = () => {
           name="contact"
 						className={styles.form}
 						data-netlify="true"
-						onSubmit={handleSubmit(data => {
-							const formData = new FormData();
-							formData.append('name', data.name);
-							formData.append('email', data.email);
+						// onSubmit={handleSubmit(data => {
+						// 	const formData = new FormData();
+						// 	formData.append('name', data.name);
+						// 	formData.append('email', data.email);
 
-							fetch('/', {
-								method: 'POST',
-								headers: {
-									'Content-Type': 'application/x-www-form-urlencoded',
-								},
-								body: new URLSearchParams(formData).toString(),
-							})
-								.then(() => alert('/thank-you/'))
-						})}
-					>
+						// 	fetch('/', {
+						// 		method: 'POST',
+						// 		headers: {
+						// 			'Content-Type': 'application/x-www-form-urlencoded',
+						// 		},
+						// 		body: new URLSearchParams(formData).toString(),
+						// 	})
+						// 		.then(() => alert('/thank-you/'))
+						// })}
+            onSubmit={handleNetlifySubmit}
+            >
           <input type="hidden" name="form-name" value="contact" />
 						<input
             name="name"
