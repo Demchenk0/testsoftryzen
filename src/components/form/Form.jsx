@@ -15,7 +15,7 @@ const Form = () => {
 				<div className={styles.boxForm}>
 					<p className={styles.callback}>Request Callback</p>
 					<form
-						className={styles.form} netlify
+						className={styles.form} data-netlify="true"
 						onSubmit={handleSubmit(data => {
 							if (!data.email) {
 								alert('Email is required');
