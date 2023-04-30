@@ -2,14 +2,8 @@ import React from 'react';
 import styles from './Form.module.scss';
 import { useForm } from 'react-hook-form';
 import error from '../../aseets/images/form/worning.svg';
+import queryString from 'query-string';
 
-function encode(data) {
-  return Object.keys(data)
-      .map(
-          key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
-      )
-      .join('&')
-}
 
 const Form = () => {
 	const {
@@ -18,86 +12,34 @@ const Form = () => {
 		formState: { errors },
 	} = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
-    // Здесь вы можете отправить данные на сервер или выполнить другие действия по вашему усмотрению.
-  };
-
-  // const handleNetlifySubmit = (event) => {
-  //   event.preventDefault();
-  //   handleSubmit(onSubmit)(event);
-  //   const form = event.target;
-  //   fetch(form.action, {
-  //     method: form.method,
-  //     body: new FormData(form),
-  //   }).then(() => console.log('Form submitted successfully'));
-  // };
-//   const onSubmit = (data, e) => {
-//     e.preventDefault()
-//     // const form = e.target
-//     fetch('/', {
-//         method: 'POST',
-//         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-//         body: encode({
-//             'form-name': 'contact',
-//             ...data,
-//         }),
-//     })
-//         .then(response => {
-//             // reset()                
-//             console.log(response)
-//         })
-//         .catch(error => {
-//             console.log(error)
-//         })
-// }
+  
 	return (
 		<section name="contact" className={styles.contact}>
 			<div className={styles.box}>
 				<div className={styles.img}></div>
 				<div className={styles.boxForm}>
 					<p className={styles.callback}>Request Callback</p>
-          <form 
-  onSubmit={handleSubmit(onSubmit)}
-  name="contact"
-  className={styles.form}
-  method="POST"
-  data-netlify="true"
-  data-netlify-honeypot="bot-field"
->
-  <input type="hidden" name="form-name" value="contact" />
-  <input
-    name="name"
-    className={styles.input}
-    type="text"
-    placeholder="Enter your name"
-    {...register('name')}
-  />
-  <input
-    name="email"
-    className={styles.input}
-    type="email"
-    placeholder="Enter email*"
-    {...register('email', { required: true })}
-  />
-  {errors.email && (
-    <div className={styles.error}>
-      <img src={error} alt="error" />
-      <p>This is a required field</p>
-    </div>
-  )}
-  <button className={styles.button} type="submit">
-    Send
-  </button>
-</form>
-					{/* <form 
-          onSubmit={handleSubmit(onSubmit)}
-          name="contact"
+					<form
+						name="contact"
 						className={styles.form}
-            method="POST"
-                data-netlify="true"
-                data-netlify-honeypot="bot-field"
-						// data-netlify="true"
+						method="POST"
+						data-netlify="true"
+						data-netlify-honeypot="bot-field"
+            onSubmit={handleSubmit(data => {
+    const encodedData = queryString.stringify({
+        'form-name': 'contact',
+        ...data
+    });
+
+    fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encodedData
+    }).then(() => alert('/thank-you/'));
+})}
+
+            
+           
 						// onSubmit={handleSubmit(data => {
 						// 	const formData = new FormData();
 						// 	formData.append('name', data.name);
@@ -109,21 +51,19 @@ const Form = () => {
 						// 			'Content-Type': 'application/x-www-form-urlencoded',
 						// 		},
 						// 		body: new URLSearchParams(formData).toString(),
-						// 	})
-						// 		.then(() => alert('/thank-you/'))
+						// 	}).then(() => alert('/thank-you/'));
 						// })}
-            // onSubmit={handleNetlifySubmit}
-            >
-          <input type="hidden" name="form-name" value="contact" />
+					>
+						<input type="hidden" name="form-name" value="contact" />
 						<input
-            name="name"
+							name="name"
 							className={styles.input}
 							type="text"
 							placeholder="Enter your name"
 							{...register('name')}
 						/>
 						<input
-            name="email"
+							name="email"
 							className={styles.input}
 							type="email"
 							placeholder="Enter email*"
@@ -138,7 +78,7 @@ const Form = () => {
 						<button className={styles.button} type="submit">
 							Send
 						</button>
-					</form> */}
+					</form>
 				</div>
 			</div>
 		</section>
