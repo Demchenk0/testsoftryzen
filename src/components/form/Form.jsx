@@ -2,12 +2,7 @@ import React from 'react';
 import styles from './Form.module.scss';
 import { useForm } from 'react-hook-form';
 import error from '../../aseets/images/form/worning.svg';
-
-const encode = data => {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
-};
+import axios from 'axios';
 
 const Form = () => {
   const {
@@ -19,14 +14,15 @@ const Form = () => {
 
   const onSubmit = (data, e) => {
     e.preventDefault();
-    fetch("/", {
-      method: "POST",
+    axios({
+      method: "post",
+      url: "/",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({
+      data: {
         "form-name": "contact",
         ...data,
         "bot-field": "",
-      }),
+      },
     })
       .then(response => {
         reset();
