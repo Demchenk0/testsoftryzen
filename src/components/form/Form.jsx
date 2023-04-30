@@ -3,27 +3,40 @@ import styles from './Form.module.scss';
 import { useForm } from 'react-hook-form';
 import error from '../../aseets/images/form/worning.svg';
 
+const encode = data => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+};
 
 const Form = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = async (data) => {
-    try {
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(new FormData(document.forms[0])).toString(),
+  const onSubmit = (data, e) => {
+    e.preventDefault();
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": "contact",
+        ...data,
+        "bot-field": "",
+      }),
+    })
+      .then(response => {
+        reset();
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error);
       });
-      console.log(response);
-    } catch (error) {
-      console.error(error);
-    }
   };
-  
+
   return (
     <section name="contact" className={styles.contact}>
       <div className={styles.box}>
@@ -34,10 +47,12 @@ const Form = () => {
             name="contact"
             className={styles.form}
             method="POST"
-            onSubmit={handleSubmit(onSubmit)}
             data-netlify="true"
             data-netlify-honeypot="bot-field"
+            netlify
+            onSubmit={handleSubmit(onSubmit)}
           >
+            <input type="hidden" name="bot-field" />
             <input type="hidden" name="form-name" value="contact" />
             <input
               name="name"
