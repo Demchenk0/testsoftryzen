@@ -2,6 +2,15 @@ import React from 'react';
 import styles from './Form.module.scss';
 import { useForm } from 'react-hook-form';
 import error from '../../aseets/images/form/worning.svg';
+
+function encode(data) {
+  return Object.keys(data)
+      .map(
+          key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
+      )
+      .join('&')
+}
+
 const Form = () => {
 	const {
 		register,
@@ -9,30 +18,53 @@ const Form = () => {
 		formState: { errors },
 	} = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
-    // Здесь вы можете отправить данные на сервер или выполнить другие действия по вашему усмотрению.
-  };
+  // const onSubmit = (data) => {
+  //   console.log(data);
+  //   // Здесь вы можете отправить данные на сервер или выполнить другие действия по вашему усмотрению.
+  // };
 
-  const handleNetlifySubmit = (event) => {
-    event.preventDefault();
-    handleSubmit(onSubmit)(event);
-    const form = event.target;
-    fetch(form.action, {
-      method: form.method,
-      body: new FormData(form),
-    }).then(() => console.log('Form submitted successfully'));
-  };
+  // const handleNetlifySubmit = (event) => {
+  //   event.preventDefault();
+  //   handleSubmit(onSubmit)(event);
+  //   const form = event.target;
+  //   fetch(form.action, {
+  //     method: form.method,
+  //     body: new FormData(form),
+  //   }).then(() => console.log('Form submitted successfully'));
+  // };
+  const onSubmit = (data, e) => {
+    e.preventDefault()
+    // const form = e.target
+    fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({
+            'form-name': 'contact',
+            ...data,
+        }),
+    })
+        .then(response => {
+            // reset()                
+            console.log(response)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+}
 	return (
 		<section name="contact" className={styles.contact}>
 			<div className={styles.box}>
 				<div className={styles.img}></div>
 				<div className={styles.boxForm}>
 					<p className={styles.callback}>Request Callback</p>
-					<form
+					<form 
+          onSubmit={handleSubmit(onSubmit)}
           name="contact"
 						className={styles.form}
-						data-netlify="true"
+            method="POST"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+						// data-netlify="true"
 						// onSubmit={handleSubmit(data => {
 						// 	const formData = new FormData();
 						// 	formData.append('name', data.name);
@@ -47,7 +79,7 @@ const Form = () => {
 						// 	})
 						// 		.then(() => alert('/thank-you/'))
 						// })}
-            onSubmit={handleNetlifySubmit}
+            // onSubmit={handleNetlifySubmit}
             >
           <input type="hidden" name="form-name" value="contact" />
 						<input
