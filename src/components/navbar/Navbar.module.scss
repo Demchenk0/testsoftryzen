@@ -36,6 +36,8 @@
 	font-size: 28px;
 	line-height: 38px;
 	gap: 8px;
+	text-decoration: none;
+	transition: all 300ms ease-in-out;
 	&:hover,
 	&:focus {
 		transform: scale(1.1);
@@ -73,6 +75,7 @@
 	line-height: 22px;
 	color: white;
 	cursor: pointer;
+	transition: all 300ms ease-in-out;
 	&::after{
 		content: "";
 		position: absolute;

@@ -6,7 +6,6 @@ const Hero = () => {
 	return (
 		<section name="home" className={styles.section}>
 			<div className="container">
-				<div className={styles.hero}>
 					<h1 className={styles.title}>The Sky Is The Limit</h1>
 					<h2 className={styles.text}>
 						We provide world class financial assistance
@@ -16,7 +15,6 @@ const Hero = () => {
 						Read More
 					</button>
 				</div>
-			</div>
 		</section>
 	);
 };
